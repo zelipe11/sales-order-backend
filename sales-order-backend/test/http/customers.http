@@ -26,9 +26,9 @@ Content-Type: application/json
 
 ###
 
-PUT http://{{localhost}}/Customers(id=3266ee62-2127-43ee-9944-98c39d7fdcba)
+PATCH http://{{localhost}}/Customers(id=c56ed007-3106-4a25-b053-32c2bc9060b2)
 Content-Type: application/json
 
 {
-    "modifiedBy": "teste"
+    "firstName": "Felipe"
 }
