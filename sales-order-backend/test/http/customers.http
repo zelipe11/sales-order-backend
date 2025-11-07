@@ -1,0 +1,34 @@
+@localhost=localhost:4004/odata/v4/main-sercice
+
+GET http://{{localhost}}/Customers
+Content-Type: application/json
+
+###
+
+POST http://{{localhost}}/Customers
+Content-Type: application/json
+
+{
+    "id": "c56ed007-3106-4a25-b053-32c2bc9060b2",
+    "firstName": "Jose",
+    "lastName": "Martins",
+    "email": "jose.martins@b2rise.consulting"
+}
+
+###
+
+DELETE http://{{localhost}}/Customers(id=)
+Content-Type: application/json
+
+{
+    
+}
+
+###
+
+PUT http://{{localhost}}/Customers(id=3266ee62-2127-43ee-9944-98c39d7fdcba)
+Content-Type: application/json
+
+{
+    "modifiedBy": "teste"
+}
