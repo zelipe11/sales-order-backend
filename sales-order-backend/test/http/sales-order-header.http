@@ -68,3 +68,8 @@ Content-Type: application/json
 
 ###
 GET http://{{localhost}}/SaleOrderHeaders?$expand=items($expand=product;$filter=quantity le 30),customer
+
+
+###
+
+GET http://{{localhost}}/SaleOrderHeaders?$select=id,customer&$expand=customer($select=email)
