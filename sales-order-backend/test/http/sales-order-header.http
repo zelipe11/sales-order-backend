@@ -60,3 +60,11 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SaleOrderHeaders?$filter=totalAmount le 200000
 Content-Type: application/json
+
+###
+# Expandindo os item
+GET http://{{localhost}}/SaleOrderHeaders?$filter=totalAmount le 200000&$expand=items($expand=product),customer
+Content-Type: application/json
+
+###
+GET http://{{localhost}}/SaleOrderHeaders?$expand=items($expand=product;$filter=quantity le 30),customer
