@@ -50,3 +50,13 @@ Content-Type: application/json
 {
     "modifiedBy": "teste"
 }
+
+###
+
+GET http://{{localhost}}/SaleOrderHeaders?$filter=totalAmount ge 2000000
+Content-Type: application/json
+
+###
+
+GET http://{{localhost}}/SaleOrderHeaders?$filter=totalAmount le 200000
+Content-Type: application/json
