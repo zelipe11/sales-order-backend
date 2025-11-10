@@ -38,5 +38,9 @@ Content-Type: application/json
 GET http://{{localhost}}/Customers?$filter=endswith(firstName, '-22156291')
 
 ###
-
+# Buscando dados com search
 GET http://{{localhost}}/Customers?$search=firstName2
+
+###
+# Ordenando dados com orderby
+GET http://{{localhost}}/Customers?$orderby=firstName desc,id desc
