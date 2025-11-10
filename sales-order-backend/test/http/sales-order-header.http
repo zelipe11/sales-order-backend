@@ -71,5 +71,14 @@ GET http://{{localhost}}/SaleOrderHeaders?$expand=items($expand=product;$filter=
 
 
 ###
-
+# Select
 GET http://{{localhost}}/SaleOrderHeaders?$select=id,customer&$expand=customer($select=email)
+
+
+###
+# Descobrindo a quantidade de registro (Count)
+GET http://{{localhost}}/SaleOrderHeaders/$count
+
+###
+# Paginando os registro
+GET http://{{localhost}}/SaleOrderHeaders?$skip=0&$top=5
