@@ -36,3 +36,7 @@ Content-Type: application/json
 ###
 
 GET http://{{localhost}}/Customers?$filter=endswith(firstName, '-22156291')
+
+###
+
+GET http://{{localhost}}/Customers?$search=firstName2
