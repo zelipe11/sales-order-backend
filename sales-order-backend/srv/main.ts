@@ -1,6 +1,5 @@
 import cds, { Request, Service } from '@sap/cds';
-import { Customers, Products, SalesOrderItem, SalesOrderItems } from '@models/sales';
-import { rejects } from 'assert';
+import { Customers, Product, Products, SaleOrderHeaders, SalesOrderItem, SalesOrderItems } from '@models/sales';
 
 export default (service: Service) => {
     service.after('READ', 'Customers', (results: Customers) => {
@@ -28,7 +27,6 @@ export default (service: Service) => {
         const productsIds: string[] = params.items.map((item: SalesOrderItem) => item.product_id);
         const productsQuery = SELECT.from('sales.Products').where({ id: productsIds });
         const products: Products = await cds.run(productsQuery);
-        const dbProducts = products.map((product) => product.id);
         for (const item of items) {
             const dbProduct = products.find(product => product.id === item.product_id);
             if (!dbProduct) {
@@ -38,7 +36,23 @@ export default (service: Service) => {
                 return request.reject(400, `Produto ${dbProduct.name}(${dbProduct.id}) sem estoque disponivel`);
             }
         }
-
-
+    });
+    service.after('CREATE', 'SaleOrderHeaders', async (results: SaleOrderHeaders) => {
+        const headersAsArray = Array.isArray(results) ? results : [results] as SaleOrderHeaders;
+        for (const header of headersAsArray) {
+            const items = header.items as SalesOrderItems;
+            const productsData = items.map(item => ({
+                id: item.product_id as string,
+                quantity: item.quantity as number
+            }));
+            const productsIds: string[] = productsData.map((productData) => productData.id);
+            const productsQuery = SELECT.from('sales.Products').where({ id: productsIds });
+            const products: Products = await cds.run(productsQuery);
+            for (const productData of productsData) {
+                const foundProduct = products.find(product => product.id === productData.id) as Product;
+                foundProduct.stock = foundProduct.stock as number - productData.quantity;
+                await cds.update('sales.Products').where({ id: foundProduct.id }).with({ stock: foundProduct.stock });
+            }
+        }
     });
 }
