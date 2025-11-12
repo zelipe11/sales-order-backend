@@ -12,6 +12,7 @@ Content-Type: application/json
 
 POST http://localhost:4004/odata/v4/main-sercice/SaleOrderHeaders
 Content-Type: application/json
+Authorization: Basic jose:Inicial@12345
 
 {
     "id": "{{id}}",

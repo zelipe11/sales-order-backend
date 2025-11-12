@@ -1,7 +1,38 @@
 using { sales } from '../db/schema';
 
-service MainSercice {    
+@requires: 'authenticated-user'
+service MainSercice {
+    @restrict: [
+        {
+            grant: 'READ',
+            to: 'read_only_user'
+        },
+        {
+            grant: ['READ', 'WRITE'],
+            to: 'admin'
+        }
+    ]
     entity SaleOrderHeaders as projection on sales.SaleOrderHeaders;
+    @restrict: [
+        {
+            grant: 'READ',
+            to: 'read_only_user'
+        },
+        {
+            grant: ['READ', 'WRITE'],
+            to: 'admin'
+        }
+    ]
     entity Customers as projection on sales.Customers;
+    @restrict: [
+        {
+            grant: 'READ',
+            to: 'read_only_user'
+        },
+        {
+            grant: ['READ', 'WRITE'],
+            to: 'admin'
+        }
+    ]
     entity Products as projection on sales.Products;
 }
