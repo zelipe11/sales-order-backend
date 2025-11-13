@@ -12,12 +12,11 @@ Content-Type: application/json
 
 POST http://localhost:4004/odata/v4/main-sercice/SaleOrderHeaders
 Content-Type: application/json
-Authorization: Basic jose:Inicial@12345
+Authorization: Basic joaozinho:Inicial@12345
 
 {
     "id": "{{id}}",
     "customer_id": "20458062-931f-487f-9e22-2637b03d8686",
-    "totalAmount": 4.98,
     "items": [
         {
             "id": "a3c2a3d8-976b-4f36-b22a-6c186e7440bd",
