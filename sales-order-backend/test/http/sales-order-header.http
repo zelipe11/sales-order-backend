@@ -22,14 +22,14 @@ Authorization: Basic joaozinho:Inicial@12345
             "id": "a3c2a3d8-976b-4f36-b22a-6c186e7440bd",
             "header_id": "{{id}}",
             "product_id": "{{productId2}}",
-            "quantity": 10,
+            "quantity": 10000,
             "price": 2.99
         },
         {
             "id": "9614a968-8a22-4066-a9c1-b9f438bf4bf0",
             "header_id": "{{id}}",
             "product_id": "{{productId2}}",
-            "quantity": 5,
+            "quantity": 5000,
             "price": 1.99
         }
     ]
