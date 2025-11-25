@@ -39,14 +39,14 @@ export class ProductModel {
 
     public sell(amount: number): SellValidationResult {
         if (this.stock < amount) {
-            return  {
+            return {
                 hasError: true,
                 error: new Error('Quantidade de produtos insuficiente no estoque')
-            }
+            };
         }
         this.stock -= amount;
         return {
             hasError: false
-        }
+        };
     }
 }

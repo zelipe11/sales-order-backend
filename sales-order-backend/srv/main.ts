@@ -24,12 +24,11 @@ export default (service: Service) => {
     service.before('CREATE', 'SaleOrderHeaders', async (request: Request) => {
         const result = await salesOrderHeaderController.beforeCreate(request.data);
         if (result.hasError) {
-            return request.reject(400, result.error?.message as string)
+            return request.reject(400, result.error?.message as string);
         }
         request.data.totalAmount = result.totalAmount;
-
     });
     service.after('CREATE', 'SaleOrderHeaders', async (salesOrderHeaders: SaleOrderHeaders, request: Request) => {
         await salesOrderHeaderController.afterCreate(salesOrderHeaders, request.user);
     });
-}
+};

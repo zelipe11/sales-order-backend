@@ -8,13 +8,19 @@
   },
   "devDependencies": {
     "@cap-js/cds-typer": "^0.38.0",
-    "@cap-js/cds-types": "^0.8.0",
+    "@cap-js/cds-types": "^0.15.0",
     "@cap-js/sqlite": "^2",
+    "@eslint/js": "^9.39.1",
     "@types/axios": "^0.14.4",
     "@types/node": "^24.10.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-prettier": "^5.5.4",
     "git-commit-msg-linter": "^5.0.8",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.0"
   },
   "scripts": {
     "start": "cds-serve",

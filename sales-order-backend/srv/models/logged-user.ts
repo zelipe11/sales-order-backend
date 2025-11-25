@@ -7,7 +7,6 @@ type LoggedUserProps = {
 type LoggedUserAttributesProps = {
     id: number;
     groups: string[];
-
 };
 
 export class LoggedUserModel {

@@ -3,34 +3,34 @@ export type CustomerProps = {
     firstName: string;
     lastName: string;
     email: string;
-}
+};
 
 export class CustomerModel {
-    constructor(private props: CustomerProps) { }
+    constructor(private props: CustomerProps) {}
 
     public static with(props: CustomerProps): CustomerModel {
         return new CustomerModel(props);
     }
 
     public get id() {
-        return this.props.id
+        return this.props.id;
     }
 
     public get firstName() {
-        return this.props.firstName
+        return this.props.firstName;
     }
 
     public get lastName() {
-        return this.props.lastName
+        return this.props.lastName;
     }
 
     public get email() {
-        return this.props.email
+        return this.props.email;
     }
 
     public setDefaultEmailDomain(): CustomerModel {
         if (!this.props.email.includes('@')) {
-            this.props.email = `${this.props.email}@gmail.com`
+            this.props.email = `${this.props.email}@gmail.com`;
         }
         return this;
     }
@@ -41,6 +41,6 @@ export class CustomerModel {
             firstName: this.firstName,
             lastName: this.lastName,
             email: this.email
-        }
+        };
     }
 }

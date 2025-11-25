@@ -1,4 +1,4 @@
-import { ProductModel } from "./product";
+import { ProductModel } from './product';
 
 type SalesOrderItemProps = {
     id: string;
@@ -20,13 +20,13 @@ type CreationPayloadValidationResult = {
 };
 
 export class SalesOrderItemModel {
-    constructor(private props: SalesOrderItemProps) { }
+    constructor(private props: SalesOrderItemProps) {}
 
     public static create(props: SalesOrderItemPropsWithoutId): SalesOrderItemModel {
         return new SalesOrderItemModel({
             ...props,
             id: crypto.randomUUID()
-        })
+        });
     }
 
     public get id() {
@@ -50,18 +50,18 @@ export class SalesOrderItemModel {
     }
 
     public validateCreationPayload(params: CreationPayload): CreationPayloadValidationResult {
-        const product = this.props.products.find(product => product.id === params.product_id);
+        const product = this.props.products.find((product) => product.id === params.product_id);
         if (!product) {
             return {
                 hasError: true,
                 error: new Error(`Produto ${params.product_id} não encontrado`)
-            }
+            };
         }
         if (product.stock === 0) {
             return {
                 hasError: true,
                 error: new Error(`Produto ${product.name}(${product.id}) sem estoque disponivel`)
-            }
+            };
         }
         return {
             hasError: false
