@@ -6,6 +6,7 @@ entity SaleOrderHeaders: managed {
     key id: UUID;
         customer: Association to Customers;
         totalAmount: Decimal(15,2);
+        status: Association to SalesOrderStatuses;
         items: Composition of many SalesOrderItems on items.header = $self;
 }
 
@@ -22,6 +23,15 @@ entity SalesOrderLogs: managed {
         header: Association to SaleOrderHeaders;
         userData: LargeString;
         orderData: LargeString;
+}
+
+entity SalesOrderStatuses {
+    key id: String enum {
+        COMPLETED = 'COMPLETED';
+        PENDING = 'PENDGING';
+        REJECTED = 'REJECTED';
+    };
+    description: localized String;
 }
 
 entity Customers {

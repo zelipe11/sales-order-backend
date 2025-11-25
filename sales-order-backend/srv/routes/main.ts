@@ -1,9 +1,9 @@
-import './configs/module-alias';
+import '../configs/module-alias';
 
 import cds, { Request, Service } from '@sap/cds';
 import { Customers, Product, Products, SaleOrderHeaders, SalesOrderItem, SalesOrderItems } from '@models/sales';
-import { customerController } from './factories/controllers/customer';
-import { salesOrderHeaderController } from './factories/controllers/sales-order-header';
+import { customerController } from '../factories/controllers/customer';
+import { salesOrderHeaderController } from '../factories/controllers/sales-order-header';
 import { FullRequestParams } from './protocols';
 
 export default (service: Service) => {
