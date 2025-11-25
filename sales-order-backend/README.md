@@ -1,5 +1,9 @@
 # Getting Started
 
+commando para resetar sap/cds
+rm -rf node_modules/ yarn.lock
+yarn
+
 Welcome to your new project.
 
 It contains these folders and files, following our recommended project layout:

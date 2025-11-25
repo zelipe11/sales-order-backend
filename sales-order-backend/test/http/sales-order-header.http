@@ -1,4 +1,4 @@
-@localhost=localhost:4004/odata/v4/main-sercice
+@localhost=localhost:4004/odata/v4/main
 @id=e28b38e2-ef74-4c16-9eec-b11b340e362e
 @customerId=22156291-ed69-4f98-bafe-d2f4c8d8a65e
 @productId=adb90e43-df32-46e3-a965-afa6dd666307
@@ -7,10 +7,11 @@
 
 GET http://{{localhost}}/SaleOrderHeaders?$filter=id eq {{id}}&$expand=items
 Content-Type: application/json
+Authorization: Basic joaozinho:Inicial@12345
 
 ###
 
-POST http://localhost:4004/odata/v4/main-sercice/SaleOrderHeaders
+POST http://localhost:4004/odata/v4/main/SaleOrderHeaders
 Content-Type: application/json
 Authorization: Basic joaozinho:Inicial@12345
 
