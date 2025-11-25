@@ -13,6 +13,7 @@ export default [
     ...tseslint.configs.recommended,
     {
         ignores: ['./gen/*.{js,ts}'],
+        files: ['**/*.{mjs,js,ts}'],
         plugins: {
             prettier
         },
