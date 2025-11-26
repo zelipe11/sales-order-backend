@@ -32,6 +32,8 @@ annotate MainService.SaleOrderHeaders with @(
                 $Type: 'UI.DataField',
                 Label: 'Status',
                 Value: status.id,
+                Criticality: (status.id = 'COMPLETED' ? 3 : (status.id = 'PENDING' ? 2 : 1)),
+                CriticalityRepresentation: #WithoutIcon,
                 @HTML5.CssDefaults: {
                     $Type: 'HTML5.CssDefaultsType',
                     width: '15rem',
