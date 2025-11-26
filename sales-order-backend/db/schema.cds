@@ -1,12 +1,16 @@
-using { managed } from '@sap/cds/common';
+using { User, managed } from '@sap/cds/common';
 
 namespace sales;
 
-entity SaleOrderHeaders: managed {
+entity SaleOrderHeaders {
     key id: UUID;
         customer: Association to Customers;
         totalAmount: Decimal(15,2);
         status: Association to SalesOrderStatuses;
+        createdAt  : Timestamp @cds.on.insert : $now;
+        createdBy  : User      @cds.on.insert : $user;
+        modifiedAt : Timestamp @cds.on.insert : $now  @cds.on.update : $now;
+        modifiedBy : User      @cds.on.insert : $user @cds.on.update : $user;
         items: Composition of many SalesOrderItems on items.header = $self;
 }
 
