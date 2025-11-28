@@ -6,6 +6,7 @@ import { customerController } from '../factories/controllers/customer';
 import { salesOrderHeaderController } from '../factories/controllers/sales-order-header';
 import { FullRequestParams } from './protocols';
 import { salesReportController } from '../factories/controllers/sales-report'
+import { SalesOrderHeaderRepositoryImpl } from 'srv/repositories/sales-order-header/implementation';
 
 export default (service: Service) => {
     service.before('READ', '*', (request: Request) => {
@@ -46,4 +47,9 @@ export default (service: Service) => {
         const { user, data } = request;
         return salesOrderHeaderController.bulkCreate(data.payload, user);
     });
+    service.on('cloneSalesOrder', async (request: Request) => {
+        const [{ id }] = request.params as unknown as { id: string }[];
+        const { user } = request;
+        return salesOrderHeaderController.cloneSalesOrder(id, user);
+    })
 };

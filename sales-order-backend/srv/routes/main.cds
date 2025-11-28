@@ -2,9 +2,11 @@ using { sales } from '../../db/schema';
 using { db.types.SalesReport, db.types.BulkCreateSalesOrder } from '../../db/types';
 
 //Entities
-//@requires: 'authenticated-user'
+@requires: 'authenticated-user'
 service MainService {
-    entity SaleOrderHeaders as projection on sales.SaleOrderHeaders;
+    entity SaleOrderHeaders as projection on sales.SaleOrderHeaders actions {
+        action cloneSalesOrder() returns Boolean;
+    };
     entity SalesOrderStatuses as projection on sales.SalesOrderStatuses;
     entity Customers as projection on sales.Customers actions {
         function getSalesReportByCustomerId() returns array of SalesReport.ExpectedResult;

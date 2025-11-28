@@ -89,3 +89,12 @@ GET http://{{localhost}}/SaleOrderHeaders?$skip=0&$top=5
 ###
 # Buscando dados com search
 GET http://{{localhost}}/SaleOrderHeaders?$search=36ys&$filter=totalAmount gt 500
+
+###
+//1490052f-475c-45e0-aa74-c1b4020d53e4
+//7029478e-2e0e-4b0e-9c54-7ba5a1803d95
+POST http://{{localhost}}/SaleOrderHeaders(1490052f-475c-45e0-aa74-c1b4020d53e4)/cloneSalesOrder
+Content-Type: application/json
+Authorization: Basic joaozinho:Inicial@12345
+
+{}
